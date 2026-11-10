@@ -3,7 +3,7 @@ let endpoint = "https://api.giphy.com/v1/gifs/search?api_key=qLnkJOu0gsJhuvbxvN3
 async function getGif() {
     const response = await fetch(endpoint);
     const data = await response.json();
-    const images = [data.data]
+    const images = [data]
     console.log(images);
 };
 
@@ -11,3 +11,11 @@ getGif();
 
 const gifContainer = document.querySelector("#gif-container");
 const button = document.querySelector("#fetch-gif-btn");
+
+button.addEventListener("click", async function () {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    for (let i = 0; i < 25; i++) {
+        gifContainer.innerHTML += `<img src="${data.data[i].url}" class="col-3 mb-3">`;
+    };
+});
