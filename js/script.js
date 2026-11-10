@@ -8,3 +8,6 @@ async function getGif() {
 };
 
 getGif();
+
+const gifContainer = document.querySelector("#gif-container");
+const button = document.querySelector("#fetch-gif-btn");
